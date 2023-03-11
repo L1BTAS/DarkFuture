@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private float jumpingPower = 8f;
     private bool isFacingRight = true;
 
+    private PickUp pickUp;
   
    
     void Update()
