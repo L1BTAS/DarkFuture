@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class ObjectPosition : MonoBehaviour
 {
-    private float currentPositionX;
-    private float currentPositionY;
-    public bool CurrentTime;
+    public float currentPositionX;
+    public float currentPositionY;
+    private int currentPositionIndex = 0;
+
+
     public void Update()
     {
-        if (Swap.isFuture == false)
+        if (Swap.isFuture == true)
         {
-            CurrentTime = Swap.isFuture;
+            currentPositionIndex = 0;
+        }
+        else if(Swap.isFuture==false)
+        {
+            
+            if (currentPositionIndex==0) 
+            {
+                this.transform.position = new Vector3(currentPositionX, currentPositionY, 0);
+                currentPositionIndex++;
+            }
             currentPositionX = this.transform.position.x;
             currentPositionY = this.transform.position.y;
-        }
-        else if(CurrentTime!= Swap.isFuture)
-        {
-
-            this.transform.position = new Vector3(currentPositionX, currentPositionY, 0);
-            CurrentTime = Swap.isFuture;
-        }
-        Debug.Log(currentPositionX);
+        } 
     }
+
+   
     
 }

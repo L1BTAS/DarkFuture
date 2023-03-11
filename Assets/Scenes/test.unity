@@ -1980,7 +1980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4e45e2661836a4d8d4c74997fe2778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentTime: 0
+  currentPositionX: 4
+  currentPositionY: -3.485
 --- !u!1 &1941019542
 GameObject:
   m_ObjectHideFlags: 0
