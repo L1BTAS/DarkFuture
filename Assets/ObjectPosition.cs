@@ -26,15 +26,16 @@ public class ObjectPosition : MonoBehaviour
             }
             futureCurrentPositionX = this.transform.position.x;
             futureCurrentPositionY = this.transform.position.y;
+            
+            pastCurrentPositionIndex = 0;
+        }
+        else if(Swap.isFuture==false)
+        {
             if (transform.parent != null)
             {
                 pastCurrentPositionX = GameObject.Find("HoldSpot").transform.position.x;
                 pastCurrentPositionY = GameObject.Find("HoldSpot").transform.position.y;
             }
-            pastCurrentPositionIndex = 0;
-        }
-        else if(Swap.isFuture==false)
-        {
             futureCurrentPositionIndex = 0;
             if (pastCurrentPositionIndex==0) 
             {
