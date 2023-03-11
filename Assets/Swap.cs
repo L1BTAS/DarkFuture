@@ -6,7 +6,7 @@ public class Swap : MonoBehaviour
 {
     public GameObject FutureGround;
     public GameObject PastGround;
-   static public bool isFuture = true;
+    static public bool isFuture = true;
 
     void Update()
     {

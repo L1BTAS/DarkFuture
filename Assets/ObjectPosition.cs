@@ -11,8 +11,16 @@ public class ObjectPosition : MonoBehaviour
 
     public void Update()
     {
+        Debug.Log(transform.parent);
+       
+
         if (Swap.isFuture == true)
         {
+            if (transform.parent != null)
+            {
+                currentPositionX = GameObject.Find("HoldSpot").transform.position.x;
+                currentPositionY = GameObject.Find("HoldSpot").transform.position.y;
+            }
             currentPositionIndex = 0;
         }
         else if(Swap.isFuture==false)
@@ -23,8 +31,11 @@ public class ObjectPosition : MonoBehaviour
                 this.transform.position = new Vector3(currentPositionX, currentPositionY, 0);
                 currentPositionIndex++;
             }
+            
             currentPositionX = this.transform.position.x;
             currentPositionY = this.transform.position.y;
+          
+
         } 
     }
 
