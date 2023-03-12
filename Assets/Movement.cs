@@ -8,10 +8,11 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public Animator animator; 
 
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 8f;
+    private float speed = 4f;
+    private float jumpingPower = 4f;
     private bool isFacingRight = true;
 
     private PickUp pickUp;
@@ -20,6 +21,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(horizontal*speed, rb.velocity.y);
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
         if(!isFacingRight&& horizontal>0f)
         {
@@ -36,13 +39,23 @@ public class Movement : MonoBehaviour
         if(context.performed&&IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            animator.SetBool("IsJumping", true);
         }
+        else
+        {
+            animator.SetBool("IsJumping", false);
+        }
+
 
         if (context.canceled && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
     }
+
+    
+        
+    
 
     private bool IsGrounded()
     {
