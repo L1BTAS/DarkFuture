@@ -14,7 +14,7 @@ public class ObjectPosition : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(transform.parent);
+      
        
 
         if (Swap.isFuture == true)
