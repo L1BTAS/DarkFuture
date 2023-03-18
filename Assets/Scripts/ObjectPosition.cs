@@ -11,6 +11,7 @@ public class ObjectPosition : MonoBehaviour
     private int pastCurrentPositionIndex = 0;
     private int futureCurrentPositionIndex = 0;
     private Vector3 holdPosition;
+    private bool IsTransported = false;
 
     public void Update()
     {
@@ -19,6 +20,9 @@ public class ObjectPosition : MonoBehaviour
 
         if (Swap.isFuture == true)
         {
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
             if (futureCurrentPositionIndex == 0)
             {
                 this.transform.position = new Vector3(futureCurrentPositionX, futureCurrentPositionY, 0);
@@ -33,9 +37,19 @@ public class ObjectPosition : MonoBehaviour
         {
             if (transform.parent != null)
             {
+                IsTransported = true;
                 pastCurrentPositionX = GameObject.Find("HoldSpot").transform.position.x;
                 pastCurrentPositionY = GameObject.Find("HoldSpot").transform.position.y;
             }
+
+            if (!IsTransported)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            }
+
+            
             futureCurrentPositionIndex = 0;
             if (pastCurrentPositionIndex==0) 
             {
