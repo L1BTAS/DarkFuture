@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
 
     private float horizontal;
     private float speed = 4f;
-    private float jumpingPower = 4f;
+    private float jumpingPower = 7f;
     private bool isFacingRight = true;
 
     private PickUp pickUp;

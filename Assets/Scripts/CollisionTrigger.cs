@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CollisionTrigger : MonoBehaviour
 {
-    Rigidbody2D rb;
     private bool IsTreeGrown;
     public GameObject Tree;
     public GameObject TriggerObject;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
    private void OnTriggerStay2D(Collider2D collision)
     {
